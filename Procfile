@@ -1,1 +1,1 @@
-worker: python battle.py
+worker: python main.py
