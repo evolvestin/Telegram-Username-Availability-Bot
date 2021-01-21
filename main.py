@@ -15,7 +15,6 @@ from aiogram.types import InlineQuery, InputTextMessageContent
 stamp1 = objects.time_now()
 Auth = objects.AuthCentre(os.environ['TOKEN'])
 bot = Auth.start_main_bot('async')
-loop = asyncio.get_event_loop()
 dispatcher = Dispatcher(bot)
 t_me = 'https://t.me/'
 idMe = 396978030
