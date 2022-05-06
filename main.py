@@ -13,7 +13,9 @@ from aiogram.types import InlineQueryResultArticle as Article
 from aiogram.types import InlineQuery, InputTextMessageContent
 # ========================================================================================================
 stamp1 = objects.time_now()
-Auth = objects.AuthCentre(ID_DEV=-1001312302092, DEV_TOKEN=os.environ['DEV_TOKEN'])
+Auth = objects.AuthCentre(ID_DEV=-1001312302092,
+                          TOKEN=os.environ['TOKEN'],
+                          DEV_TOKEN=os.environ['DEV_TOKEN'])
 bot, idMe, t_me, dispatcher = Auth.async_bot, 396978030, 'https://t.me/', Dispatcher(Auth.async_bot)
 # ========================================================================================================
 if os.environ.get('local') is None:
