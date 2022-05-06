@@ -13,14 +13,11 @@ from aiogram.types import InlineQueryResultArticle as Article
 from aiogram.types import InlineQuery, InputTextMessageContent
 # ========================================================================================================
 stamp1 = objects.time_now()
-Auth = objects.AuthCentre(os.environ['TOKEN'])
-bot = Auth.start_main_bot('async')
-dispatcher = Dispatcher(bot)
-t_me = 'https://t.me/'
-idMe = 396978030
+Auth = objects.AuthCentre(ID_DEV=-1001312302092, DEV_TOKEN=os.environ['DEV_TOKEN'])
+bot, idMe, t_me, dispatcher = Auth.async_bot, 396978030, 'https://t.me/', Dispatcher(Auth.async_bot)
 # ========================================================================================================
 if os.environ.get('local') is None:
-    objects.AuthCentre(os.environ['DEV-TOKEN']).start_message(stamp1)
+    Auth.dev.start(stamp1)
 
 
 def rand():
@@ -36,7 +33,7 @@ async def repeat_all_messages(message: types.Message):
                 await bot.send_document(message['chat']['id'], doc)
                 doc.close()
     except IndexError and Exception:
-        await Auth.async_exec(str(message))
+        await Auth.dev.async_except()
 
 
 async def line(query):
